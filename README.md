@@ -13,19 +13,23 @@ The following list outlines the general goal for our C161 project.
 
 ## References
 **Expansion of universe:**
+
 Hubble 1929: https://www.pnas.org/doi/epdf/10.1073/pnas.15.3.168
 
-**First papers on accelerating universe:**
+**First papers on accelerating universe:** 
+
 Riess et al. 1998 (High Z team): https://arxiv.org/pdf/astro-ph/9805201.pdf
 
 Perlmutter et al. 1998 (Supernova Cosmology Project): https://arxiv.org/pdf/astro-ph/9812133.pdf
 
 **Expanded datasets ~10 years after discovery:**
+
 Kessler et al. 2009 (SDSS): https://iopscience.iop.org/article/10.1088/0067-0049/185/1/32/pdf
 
 Suzuki et al. 2011 (Union2.1 dataset): https://arxiv.org/pdf/1105.3470.pdf
 
 **Recent results:**
+
 Galbany et al. 2023 (SH0ES): https://arxiv.org/pdf/2209.02546.pdf
 
 ## Extra
