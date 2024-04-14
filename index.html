@@ -32,5 +32,23 @@
     <p>Created by: Brianna, Eli and Dex.</p>
 </div>
 
+
+<input type="checkbox" id="helloCheckbox" onchange="toggleHello()">
+<label for="helloCheckbox">Click for a Surprise</label>
+<p id="helloText"></p>
+
+<script>
+function toggleHello() {
+    var helloText = document.getElementById("helloText");
+    var checkbox = document.getElementById("helloCheckbox");
+    if (checkbox.checked) {
+        helloText.textContent = "Hello World!";
+    } else {
+        helloText.textContent = "";
+    }
+}
+</script>
+
+
 </body>
 </html>
