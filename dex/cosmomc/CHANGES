@@ -1,0 +1,83 @@
+------------------------------------------------
+- These are the changes to incorporate the SNLS
+- data.
+
+First, put a copy of SNLS.f90 in the source subdir.
+
+Then modify the Makefile in source, adding SNLS.o
+to the end of OBJFILES.  Also add the right
+dependencies by adding
+ SNLS.o: cmbtypes.o
+right after the line
+ supernovae.o: cmbtypes.o
+Modify the calclike.o: line to read
+ calclike.o: $(PARAMETERIZATION) SNLS.o
+
+
+calclike.f90 --
+  Add use SNLS statement to the top of the main module.
+  FUNCTION GetLogLikePost
+    Add call to snls_LnLike in two places:
+    Right after the Use_SN IF block add:
+         IF (Use_SNLS .AND. GetLogLikePost /= LogZero) THEN
+            GetLogLikePost = GetLogLikePost + snls_LnLike( CMB )
+         ENDIF
+    and right after if (Use_HST) GetLogLikePost = GetLogLikePost + HST_LnLike(CMB)
+           IF (Use_SNLS) GetLogLikePost = GetLogLikePost + snls_LnLike(CMB)
+
+
+cmbtypes.f90 --
+  MODULE cmbtypes
+    Add norm_alpha, norm_beta parameters to
+     keep track of alpha/beta.  So, right after norm_As, norm_amp_ratio, etc. 
+      are defined:
+      INTEGER, PARAMETER :: norm_alpha=norm_freq_iq+num_freq_params
+      INTEGER, PARAMETER::  norm_beta=norm_alpha+1 !SNLS nuisance parameters
+
+driver.F90 --
+  Add use statement for SNLS module to Program SolveCosmology:
+       use SNLS, ONLY : read_snls_dataset, snls_prep, snls_cleanup
+
+  Add a variable snls_filename to Program SolveCosmology:
+       CHARACTER(LEN=Ini_max_string_len) :: snls_filename
+
+  Add check for Use_SNLS from Ini file.  I put it right 
+   after Use_CMB = Init_Read ... :
+       Use_SNLS = Ini_Read_Logical('use_SNLS',.false.)
+
+  Add stop error if SNLS is used with non-independent data sets.  
+    So, right after the: if (Use_BAO .and use_dr7lrg) call MpiStop.... :
+        IF (Use_SNLS .AND. Use_HST) &
+             CALL MpiStop('HST and SNLS not indpendent, as HST uses SN data.')
+        IF (Use_SN .AND. Use_HST) &
+             CALL MpiStop('HST and SN not independent, as HST uses SN data.')
+        IF (Use_SNLS .AND. Use_SN) &
+             CALL MpiStop('SNLS and SN not independent.')
+
+  Also read in snls_filename, adding this as a variable
+   then actually read the data if use_snls is set.  So, right after the last
+   modification:
+      IF (Use_SNLS) THEN
+           Ini_fail_on_not_found = .FALSE.
+           snls_filename = Ini_Read_String('snls_dataset',.FALSE.)
+           IF (TRIM(snls_filename) == '') snls_filename = &
+                'data/snls_3rdyear.dataset'
+           Ini_fail_on_not_found = .TRUE.
+        ENDIF
+   Then, right after the call Ini_Close:
+     IF (Use_SNLS) THEN
+           CALL read_snls_dataset( snls_filename )
+           CALL snls_prep
+           If (Feedback>0) WRITE(*,*) 'read snls dataset'
+     ENDIF
+
+  Call snls_cleanup when program is ending.  So, right before call DoStop
+    at the very end of program SolveCosmology
+        IF ( Use_SNLS ) CALL snls_cleanup
+
+
+settings.f90 --
+  MODULE settings
+    Increment num_norm by 2 (from 2 to 4 for the Jan 2010 version)
+    Add Use_SNLS variable.  I stuck it right after logical :: Use_LSS = .true.
+        LOGICAL :: Use_SNLS = .FALSE.

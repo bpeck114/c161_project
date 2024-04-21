@@ -1,0 +1,101 @@
+Contents
+--------------------------
+This is a module for using SNLS3 data with Cosmomc.
+It is possible that a more up-to-date version may be
+available at:
+http://casa.colorado.edu/~aaconley/Software.html
+
+Installing the SNLS module
+--------------------------
+The SNLS add-on to COSMOMC was developed against
+the May 2010 update (sadly, cosmomc doesn't
+use real version numbers).
+
+If you are using this version, things are easy.
+There's a patch file you can use.  Simply
+go into the source directory of your cosmomc
+distribution (making a copy first=always a good idea).
+Then 
+  patch -p1 -i add_snls.patch
+This won't quite do everything.  You also need to copy
+the contents of the data subdirectory into the data subdirectory
+of cosmomc.  And, if you've made other changes to cosmomc,
+you would be crazy not to back it up first.
+
+But by the time you read this, COSMOMC may have changed
+enough so that the patch doesn't work. What then?
+In this case some written instructions are provided for what
+needs to be changed -- see the CHANGES file.
+
+I've also provided a modified version of getdist (getdistidl)
+that does most of what SNLS does but produces files IDL can run.
+You need to modify the Makefile to generate that, but it should
+be straightforward.
+
+How To Use SNLS data
+---------------------
+The parameters of the SN file are controlled through
+a .dataset file in data -- so snls_3rdyear.dataset.
+That controls which datafile to use, the covariance
+matrices, \sigma_int, etc.
+
+You then have to modify your parameter file (param.ini) to point
+to the datafile and use SNLS -- something like:
+
+snls_dataset = data/snls_3rdyear.dataset
+use_SNLS = T
+
+You will also need to fit two additional SN nuisance parameters,
+alpha and beta.  These in principle depend on the light-curve
+fitting tool you used to analyze the data.  For the SNLS3
+data, a good starting guess is:
+
+param[alpha] = 1.442 0.6 2.6 0.11 0.11
+param[beta] = 3.262 0.9 4.6 0.11 0.11
+
+Covariance matrices
+-------------------
+The stat+sys covariance matrices are in the same format
+as used for the other code; in other words, you can find
+other covariance matrices (for example, for stat only)
+in the covariances top level directory.
+
+Questions
+---------
+Q: Can't I just use the default SN module with your
+ datafile?
+A: Yes, if you are willing to accept not having the
+  right answer.  In other words, no.
+  See the discussion in Conley et al. 2011 sections
+  4.6 and appendix C.
+
+Q: Couldn't you properly marginalize over alpha and beta
+  internally so I don't have to fit them?
+A: Yes.  Unfortunately, doing so turns out to be slower
+  than fitting them.  If one had a machine with sufficient
+  memory to pre-invert the covariance matrix for a decent
+  grid of alpha/beta (say, 60 x 60) and hold that in ram,
+  this would be the way to go.  Right now this requires 
+  about 5.5 GB for SNLS3.  Since people
+  are often running multiple copies per machine due to multiple
+  cores, this seemed too severe a requirement to impose,
+  but that will presumably change in the future.  Reinverting
+  on the fly (so as not to hold stuff in memory) right now slows
+  down cosmomc by about a factor of 10 or so, whereas explicitly
+  fitting for alpha and beta slows it down by a few 10s of percent.
+  If at some point in the future new data sets (Planck?) are added
+  that slow down the CMB likelihood evaluation by factors of 10,
+  this may be worth revisiting.
+
+Q: What about eigenmode compression or something, as was done for
+   WMAP?
+A: Good idea, but it doesn't seem to work so well for this covariance matrix
+   considering the range of alpha/beta that need to be covered to get
+   the marginalization right.
+
+Change Log:
+
+Last Modified: Apr 10, 2010 by Alex Conley
+
+Apr 10, 2011: Modified some non-standard F90 usage that some compilers
+  don't appreciate.  Caught by Zhiqi Huang
