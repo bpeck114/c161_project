@@ -49,6 +49,9 @@
             text-decoration: none;
         }
     </style>
+    <title>MathJax Example</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -63,16 +66,34 @@
 
 <div class="header">
     <h1>Welcome to the Theory Page!</h1>
-    <p>The 1929 article by Edwin Hubble serves as our initial inspiration for this project. We aim to explore the improvement of science over the last century when it comes to the discussion of Hubble's constant, the scale factor and cosmological constants.</p>
+    <p>The 1929 paper by Edwin Hubble serves as our initial inspiration for this project. We aim to explore the improvement in the Cosmology over the last century. Specifically, we are exploring improvement's in the calculation of the Hubble constant, the scale factor and cosmological parameters.</p>
     <a href="index.html">Go back to Home Page</a>
 </div>
 
 <div class="main">
-	<h1>Hubble's Constant</h1>
-    <p>This is the second page of our C161 Project.</p>
-    <h1>Scale Factor</h1>
-    <h1>Cosmological Constants</h1>
+	<h1>Cosmological Parameters</h1>
+    <p>From the redshift and luminosity distances of type Ia supernova we can constrain the mass-energy composition of our universe. To do this we will derive an expression that relates the cosmological paramters (\(\Omega_{M,0}, \Omega_{\Lambda,0}, H_0\)) with observed redshift values and luminosity distances.  </p>
+    <h2>Model</h2>
+    <p>Since we are considering luminosity distances of type Ia supernova, we will begin with the relationship between a light source's flux \(F\), distance \(r\) and luminosity \(L\) for a static, homogeneous, isotropic, flat universe.</p>
+    \[ F = \frac{L}{A} = \frac{L}{4\pi r^2} \]
+    <p> To account for the expansion and potential curvature of the universe we need to modify our expression for the area in which light spreads out. First, we will modify for curvature. Now in addition to a flat universe, we will consider a negatively curved and positively curved universe. Therefore, we will consider an area expression of \(A = 4\pi S_k(r)^2\), where we define \(S_k(r)\) as: </p>
+    \[S_{k}(r) = \begin{cases} R_0\sin\left(\frac{r}{r_0} \right), & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ R_0\sinh\left(\frac{r}{r_0} \right), & \kappa = -1\,(\text{negative}) \end{cases} \]
+    <p>Where \(R_0\) is the universe's radius of curvature. For a flat universe our expression for area simplifies to: \(A = 4\pi S_k(r)^2 = 4\pi r^2\). Second, we will modify for expansion. A photon travelling through an expanding universe will experience redshift \(z\), in which its observed wavelength \(\lambda_o\) is longer (redder) than its emitted one \(\lambda_e\). The amount of redshift will depend on the scale factor \(a(t)\) at the emitted time \(t_e\).</p>
+    \[\lambda_0 = \frac{1}{a(t_e)}\lambda_e = (1+z_e)\lambda_e \]
+    <p>Where the scale factor describes how the expansion/contraction of the universe depends on time. Redshifting causes a photon to lose energy. Therefore, by considering the energy of a photon, \(E = \frac{hc}{\lambda}\), we can derive an expression between the observed energy \(E_o\), its emitted energy \(E_e\) and the redshift we observe.</p>
+    \[E_o = \frac{hc}{\lambda_o} = \frac{hc}{(\lambda_e/a(t_e))} = a(t_e)\frac{hc}{\lambda_e} = a(t_e)E_e = \frac{1}{1+z_e}E_e  \]
+    <p>Reconsidering our expression for flux, the observed flux is related to the emitted flux by a factor of \(1/(1+z_e)\): </p>
+    \[F = \frac{L}{4\pi R^2}\frac{1}{1 + z_e}\]
+    <p>However, this is not the end of the story. We also need to consider the effects of cosmological time dilation. If two photons are emitted a time \(t_e\) apart, the time interval in which we observe those two photons \(t_o \) is given by:</p>
+    \[\Delta t_o = \frac{a(t_o)}{a(t_e)}\Delta t_e = \frac{1}{a(t_e)}\Delta t_e = (1+z_e)\Delta t_e  \]
+    <p>Where we normalize the scale factor to be 1 at the present time. Therefore, the observed flux from a distant type Ia supernova is smaller by two factors of \(1/(1 + z_e) \) since the arrival of sucessive photons becomes larger. </p>
+    \[F = \frac{L}{4\pi S_k(r)^2}\frac{1}{(1 + z_e)^2}\]
+    <p>To simplify our expression, we will define a new variable called the <b>luminosity distance</b> \(d_L\). Where \(d_L = S_k(r)(1 + z_e) \). Therefore, our expression becomes:</p>
+    \[F = \frac{L}{4\pi d_L^2}\]
+    <p>Onward through our derivation, now we will be considering the comoving radial coordinate \(r\). The Friedmann-Robertson-Walker metric (FRW) for a four-dimensional curved, expanding, isotropic and homogeneous spacetime is given as:</p>
+    \[ds^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_k(r)^2\text{d}\Omega^2 \right]  \]
+    <p>Where \(\text{d}s\) is the distance between two points in space,</p>  
 </div>
-
 </body>
+</html>
 </html>
