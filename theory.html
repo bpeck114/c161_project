@@ -83,13 +83,18 @@
     <p>By writing our metric in terms of the Hubble constant, we can rewrite \(H(t)\) in terms of the cosmological parameters. Now we will consider a specific form of the Friedmann equation.</p>
     \[H(t)^2 = H_0^2\left[ \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{a^2}  \right] \]
     \[\implies H(t) = H_0\left[ \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{a^2}  \right]^{-\frac{1}{2}} \]
-    <p>Where \(\Omega_0 = \Omega_{m,0} + \Omega_{\Lambda,0} \). Now we can plug this expresssion back into our FRW metric.</p> 
+    <p>Now we can plug this expresssion back into our FRW metric.</p> 
     \[r = c \int_{a(t_e)}^{1} \frac{\text{d}a}{a(t)^2} \frac{1}{H_0}\left[ \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{a^2}  \right]^{-\frac{1}{2}} \]
     <p>To recap, we began with a function that describes how a photon travels through our universe and rewrote it in terms of the cosmological parameters. However, since the universe is expanding, our photon will experience a redshift as it travels towards us. The scale factor is related to the redshift via, </p>
     \[1 + z = \frac{a(t_o)}{a(t_e)} = \frac{1}{a(t_e)} \]
     <p>With this relation, we can perform a subsitution in our integral where,</p>
     \[\text{d}a = -\frac{\text{d}z}{(1+z)^2} \]
-    \[\begin{split} r & = \frac{c}{H_0} \int_{z_e}^{0} (1 + z)^2\left(-\frac{\text{d}z}{(1+z)^2} \right)\left[ \frac{\Omega_{m,0}}{(1+z)^{-3}} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{(1+z)^{-2}}  \right]^{-\frac{1}{2}} & =  \end{split}  \]
+    \[\begin{split} r & = \frac{c}{H_0} \int_{0}^{z_e} \left[ \Omega_{m,0}(1+z)^{3} + \Omega_{\Lambda} + (1 - \Omega_{m,0} + \Omega_{\Lambda,0})(1+z)^{2}  \right]^{-\frac{1}{2}} \text{d}z \\ & = \frac{c}{H_0} \int_{0}^{z_e} \left[(1+z)^2(\Omega_{m,0} + z\Omega_{m,0} - \Omega_{m,0}) + \Omega_{\Lambda,0} + (1+z)^2 - \Omega_{\Lambda,0}(1+z)^2 \right]^{-\frac{1}{2}} \text{d}z \\ & = \frac{c}{H_0} \int_{0}^{z_e} \left[(1+z^2)(1+z \Omega_{m,0}) + \Omega_{\Lambda,0}(1 - 1 - 2z - z^2) \right]^{-\frac{1}{2}} \text{d}z \\ & = \frac{c}{H_0} \int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z  \end{split} \]
+    <p>It is impossible for us to physically place a massive ruler between ourselves and the supernova under consideration, therefore, we must rely on its luminosity distance to tell us how far away it is. So now we will consider the relationship between a light source's flux, luminosity and distance. </p>
+    \[ F = \frac{L}{A} = \frac{L}{4\pi r^2} \]
+    <p>To account for the curvature of the universe we will again consider an area of \(A = 4\pi S_k(r)^2\). Where for a flat universe, this equation would simplify to: \(A = 4\pi S_k(r)^2 = 4\pi r^2\). Additionally, our light will experience a redshift that depends on the time the light was emitted \(t_e\).  </p>
+    \[\lambda_0 = \frac{1}{a(t_e)}\lambda_e = (1+z_e)\lambda_e \]
+     <p>By considering the energy of a photon, \(E = \frac{hc}{\lambda}\), we can derive an expression between the observed energy \(E_o\), its emitted energy \(E_e\) and the redshift we observe.</p>
 </div>
 
 
