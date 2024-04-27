@@ -18,7 +18,7 @@
             text-align: center;
         }
         .main {
-        	max-width: 800px;
+        	max-width: 850px;
             margin:0 auto;
             padding: 20px;
             text-align: left;
@@ -71,8 +71,19 @@
 </div>
 
 <div class="main">
-	<h1>Cosmological Parameters</h1>
-    <p>From the redshift and luminosity distances of type Ia supernova we can constrain the mass-energy composition of our universe. To do this we will derive an expression that relates the cosmological paramters (\(\Omega_{M,0}, \Omega_{\Lambda,0}, H_0\)) with observed redshift values and luminosity distances.  </p>
+	<h1>Deriving \(\Omega_{M,0}, \Omega_{\Lambda,0}, H_0 \) from Observations:</h1>
+    <p>By observing Type Ia supernova redshifts and luminosities distance, we can constrain the mass-energy composition of our universe through values of cosmological parameters. To derive this relationship, we will begin by considering an observed photon emitted from a distant Type Ia supernova that traveled through an expanding, homogeneous and isotropic universe.</p>
+    \[\text{d}s^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_{\kappa}(r)^2\text{d}\Omega^2 \right] \]
+    <p>The above equation is the Friedmann-Robertson-Walker (FRW) metric which is the most general function that gives the distance between points in spacetime for our universe. Where d\(\Omega \equiv \text{d}\theta^2 + \sin^2\theta\text{d}\phi^2 \), and where \(S_{\kappa}(r)\) describes the only three possible spacetime metrics for our assumptions: positive, negative and flat curvature. </p>
+    \[S_{k}(r) = \begin{cases} R_0\sin\left(\frac{r}{r_0} \right), & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ R_0\sinh\left(\frac{r}{r_0} \right), & \kappa = -1\,(\text{negative}) \end{cases} \]
+    <p>We can simplify our metric by considering that light, or photons, travel on a null geodesic where d\(s^2 = 0\), and that photons travel along a radial path \(r\) therefore \(\text{d}\theta^2 = \text{d}\phi^2 = 0\). Now we can determine the proper distance our photon traveled by solving for the comoving coordinate \(r\). </p>
+    \[\begin{split}0 & = -c^2\text{d}t^2 + a(t)^2\text{d}r^2 \\ \text{d}r^2 & = \frac{c^2\text{d}t^2}{a(t)^2} \\ \text{d}r & = \pm\frac{c\text{d}t}{a(t)} \end{split} \]
+    <p>Working in spherical coordinates and placing ourselves at the orgin, the photon will be traveling inwards. Therefore, we will choose the negative sign from our square root. </p>
+    \[\begin{split}\text{d}r & = -\frac{c\text{d}t}{a(t)} \\ -\int_{r}^0 \text{d}r' & = -c\int_{t_e}^{t_o} \frac{\text{d}t}{a(t)} \\ r & = c \int_{t_e}^{t_o} \frac{1}{a(t)}\frac{\text{d}t}{\text{d}a}\text{d}a \\ & = c \int_{a(t_e)}^{a(t_o)} \frac{1}{a(t)}\frac{1}{\dot{a}}\text{d}a  \end{split}\]
+</div>
+
+
+<div class="main">
     <h2>Model</h2>
     <p>Since we are considering luminosity distances of type Ia supernova, we will begin with the relationship between a light source's flux \(F\), distance \(r\) and luminosity \(L\) for a static, homogeneous, isotropic, flat universe.</p>
     \[ F = \frac{L}{A} = \frac{L}{4\pi r^2} \]
@@ -95,5 +106,4 @@
     <p>Where \(\text{d}s\) is the distance between two points in space,</p>  
 </div>
 </body>
-</html>
 </html>
