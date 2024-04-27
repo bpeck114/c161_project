@@ -48,6 +48,23 @@
             color: #fff;
             text-decoration: none;
         }
+        .expandable {
+    		cursor: pointer;
+    		user-select: none;
+    		display: flex;
+    		align-items: center;
+  		}
+  		.arrow {
+    		margin-right: 5px;
+  		}
+  		.paragraph {
+    		display: none;
+    		margin-top: 10px;
+    		margin-left: 60px; /* Adjust indentation as needed */
+  		}
+  		.expanded {
+    		display: block;
+  		}
     </style>
     <title>MathJax Example</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -73,7 +90,11 @@
 <div class="main">
 	<h1>Deriving \(\Omega_{M,0}, \Omega_{\Lambda,0}, H_0 \) from Observations:</h1>
     <p>By observing Type Ia supernova redshifts and luminosities distance, we can constrain the mass-energy composition of our universe through values of cosmological parameters. To derive this relationship, we will begin by considering an observed photon emitted from a distant Type Ia supernova that traveled through an expanding, homogeneous and isotropic universe.</p>
-    \[\text{d}s^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_{\kappa}(r)^2\text{d}\Omega^2 \right] \]
+    <div class="expandable" onclick="toggleParagraph()">
+  		<span class="arrow">&#x25B6;</span> <b>Click for more information:</b>
+	</div>
+	<div class="paragraph" id="expandedParagraph">
+  		\[\text{d}s^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_{\kappa}(r)^2\text{d}\Omega^2 \right] \]
     <p>The above equation is the Friedmann-Robertson-Walker (FRW) metric which is the most general function that gives the distance between points in spacetime for our universe. Where d\(\Omega \equiv \text{d}\theta^2 + \sin^2\theta\text{d}\phi^2 \), and where \(S_{\kappa}(r)\) describes the only three possible spacetime metrics for our assumptions: positive, negative and flat curvature. </p>
     \[S_{k}(r) = \begin{cases} R_0\sin\left(\frac{r}{r_0} \right), & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ R_0\sinh\left(\frac{r}{r_0} \right), & \kappa = -1\,(\text{negative}) \end{cases} \]
     <p>Where \(R_0\) is the universe's radius of curvature. We can simplify our metric by considering that light, or photons, travel on a null geodesic where d\(s^2 = 0\), and that photons travel along a radial path \(r\) therefore \(\text{d}\theta^2 = \text{d}\phi^2 = 0\). Our goal from now on is to manipulate our metric into terms of redshift and cosmological parameters. \(r\). </p>
@@ -114,7 +135,20 @@
    \[\text{sinn}(x) =  \begin{cases}  \sin(x), & \kappa = +1 \,(\text{positive}) \\ x, & \kappa = 0\hspace{10pt}(\text{flat}) \\ \sinh(x), & \kappa = -1 \,(\text{negative}) \\ \end{cases} \]
    \[S_{\kappa}(r) = \begin{cases}\frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\sin \left(\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}}r \right) & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ \frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\sinh \left(\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}}r \right) & \kappa = -1 \,(\text{negative}) \\ \end{cases} \implies S_{\kappa}(r) = \frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\text{sinn}\left(\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}}r \right)\]
    <p>Inserting this luminsoity distance expression we have the following formula, </p>
-   \[\begin{split} d_L &  = \boxed{(1 + z_e)S_k(r) \\ & = (1 + z_e)\frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\text{sinn}\left(\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}}r \right) \\ & = (1 + z_e)\frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\text{sinn}\left(\frac{c}{H_0}\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}} \int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right) \\ & = cH_0^{-1}(1+z_e)|\Omega_k|^{-\frac{1}{2}} \text{sinn}\left(|\Omega_k|^{\frac{1}{2}}\int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right)} \end{split} \]
+   \[\begin{split} d_L &  = (1 + z_e)S_k(r) \\ & = (1 + z_e)\frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\text{sinn}\left(\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}}r \right) \\ & = (1 + z_e)\frac{c}{H_0}|\Omega_k|^{-\frac{1}{2}}\text{sinn}\left(\frac{c}{H_0}\frac{H_0}{c}|\Omega_k|^{\frac{1}{2}} \int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right) \\ & = \boxed{cH_0^{-1}(1+z_e)|\Omega_k|^{-\frac{1}{2}} \text{sinn}\left(|\Omega_k|^{\frac{1}{2}}\int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right)} \end{split} \]
+</div>
+</div>
 
+<script>
+function toggleParagraph() {
+  var paragraph = document.getElementById("expandedParagraph");
+  if (paragraph.classList.contains("expanded")) {
+    paragraph.classList.remove("expanded");
+  } else {
+    paragraph.classList.add("expanded");
+  }
+}
+</script>
+    
 </body>
 </html>
