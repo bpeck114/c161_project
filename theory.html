@@ -92,11 +92,11 @@
    <h1>Deriving \(\Omega_{M,0}, \Omega_{\Lambda,0}, H_0 \) from Observations:</h1>
     <p>By observing Type Ia supernova redshifts and luminosities distance, we can constrain the mass-energy composition of our universe through values of cosmological parameters. </p>
     \[d_L = cH_0^{-1}(1+z_e)|\Omega_k|^{-\frac{1}{2}} \text{sinn}\left(|\Omega_k|^{\frac{1}{2}}\int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right)  \]
-	<div class="expandable" onclick="toggleParagraph()">
-  		<span class="arrow">&#x25B6;</span> <b>Click to see full derivation:</b>
-	</div>
-	<div class="paragraph" id="expandedParagraph">
-		To derive this relationship, we will begin by considering an observed photon emitted from a distant Type Ia supernova that traveled through an expanding, homogeneous and isotropic universe.
+	<div class="expandable" onclick="toggleParagraph('expandedParagraph1')">
+        <span class="arrow">&#x25B6;</span> <b>Click to see full derivation:</b>
+    </div>
+    <div class="paragraph" id="expandedParagraph1">
+		<p>To derive this relationship, we will begin by considering an observed photon emitted from a distant Type Ia supernova that traveled through an expanding, homogeneous and isotropic universe.</p>
   		\[\text{d}s^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_{\kappa}(r)^2\text{d}\Omega^2 \right] \]
     		<p>The above equation is the Friedmann-Robertson-Walker (FRW) metric which is the most general function that gives the distance between points in spacetime for our universe. Where d\(\Omega \equiv \text{d}\theta^2 + \sin^2\theta\text{d}\phi^2 \), and where \(S_{\kappa}(r)\) describes the only three possible spacetime metrics for our assumptions: positive, negative and flat curvature. </p>
     		\[S_{k}(r) = \begin{cases} R_0\sin\left(\frac{r}{r_0} \right), & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ R_0\sinh\left(\frac{r}{r_0} \right), & \kappa = -1\,(\text{negative}) \end{cases} \]
@@ -142,10 +142,10 @@
 	</div>
     <h1>Phase Space Sampling:</h1>
     <p>In addition to SciPy's curve-fitting function, we also explored finding the best fit values by phase-space sampling. </p>
-    	<div class="expandable" onclick="toggleParagraph()">
-  		<span class="arrow">&#x25B6;</span> <b>Click for more information:</b>
-    	</div>
-    	<div class="paragraph" id="expandedParagraph">
+    	<div class="expandable" onclick="toggleParagraph('expandedParagraph2')">
+        <span class="arrow">&#x25B6;</span> <b>Click for more information:</b>
+    </div>
+    <div class="paragraph" id="expandedParagraph2">
 		<p>Specifically, to find the best-fit parameters for the cosmological parameters we want to sample the phase-space and identify which combination of parameters provides the best fit for our data. Given values found by other papers, we will sample in the following regions,</p>
     		\[\Omega_{m,0} \in [0,1], \hspace{10pt} \Omega_{\Lambda,0} \in [0,1], \hspace{10pt} H_0 \in [60,80] \]
     		<p>For each possible combination of parameters we will determine the goodness of fit by computing the chi-squared, </p>
@@ -155,8 +155,8 @@
 </div>
 
 <script>
-function toggleParagraph() {
-  var paragraph = document.getElementById("expandedParagraph");
+function toggleParagraph(id) {
+  var paragraph = document.getElementById(id);
   if (paragraph.classList.contains("expanded")) {
     paragraph.classList.remove("expanded");
   } else {
