@@ -76,37 +76,25 @@
     \[\text{d}s^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_{\kappa}(r)^2\text{d}\Omega^2 \right] \]
     <p>The above equation is the Friedmann-Robertson-Walker (FRW) metric which is the most general function that gives the distance between points in spacetime for our universe. Where d\(\Omega \equiv \text{d}\theta^2 + \sin^2\theta\text{d}\phi^2 \), and where \(S_{\kappa}(r)\) describes the only three possible spacetime metrics for our assumptions: positive, negative and flat curvature. </p>
     \[S_{k}(r) = \begin{cases} R_0\sin\left(\frac{r}{r_0} \right), & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ R_0\sinh\left(\frac{r}{r_0} \right), & \kappa = -1\,(\text{negative}) \end{cases} \]
-    <p>We can simplify our metric by considering that light, or photons, travel on a null geodesic where d\(s^2 = 0\), and that photons travel along a radial path \(r\) therefore \(\text{d}\theta^2 = \text{d}\phi^2 = 0\). Our goal from now on is to manipulate our metric into terms of redshift and cosmological parameters. \(r\). </p>
+    <p>Where \(R_0\) is the universe's radius of curvature. We can simplify our metric by considering that light, or photons, travel on a null geodesic where d\(s^2 = 0\), and that photons travel along a radial path \(r\) therefore \(\text{d}\theta^2 = \text{d}\phi^2 = 0\). Our goal from now on is to manipulate our metric into terms of redshift and cosmological parameters. \(r\). </p>
     \[\begin{split}0 & = -c^2\text{d}t^2 + a(t)^2\text{d}r^2 \\ \text{d}r^2 & = \frac{c^2\text{d}t^2}{a(t)^2} \\ \text{d}r & = \pm\frac{c\text{d}t}{a(t)} \end{split} \]
     <p>Working in spherical coordinates and placing ourselves at the orgin, the photon will be traveling inwards. Therefore, we will choose the negative sign from our square root. </p>
     \[\begin{split}\text{d}r & = -\frac{c\text{d}t}{a(t)} \\ -\int_{r}^0 \text{d}r' & = -c\int_{t_e}^{t_o} \frac{\text{d}t}{a(t)} \\ r & = c \int_{t_e}^{t_o} \frac{1}{a(t)}\frac{\text{d}t}{\text{d}a}\text{d}a \\ & = c \int_{a(t_e)}^{a(t_o)} \frac{1}{a(t)}\frac{1}{\dot{a}}\text{d}a \\ & = c \int_{a(t_e)}^{1} \frac{a(t)}{\dot{a}}\frac{1}{a(t)^2} \text{d}a \\ & = c\int_{a(t_e)}^{1} \frac{1}{H(t)}\frac{\text{d}a}{a(t)^2}\\ \end{split}\]
     <p>By writing our metric in terms of the Hubble constant, we can rewrite \(H(t)\) in terms of the cosmological parameters. Now we will consider a specific form of the Friedmann equation.</p>
     \[H(t)^2 = H_0^2\left[ \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{a^2}  \right] \]
     \[\implies H(t) = H_0\left[ \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{a^2}  \right]^{-\frac{1}{2}} \]
-    <p>Now we can plug this expresssion back into our FRW metric.</p> 
+    <p>Where the scale factor \(a\) describes how the expansion/contraction of the universe depends on time. Now we can plug this expresssion back into our FRW metric.</p> 
     \[r = c \int_{a(t_e)}^{1} \frac{\text{d}a}{a(t)^2} \frac{1}{H_0}\left[ \frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda} + \frac{1 - \Omega_0}{a^2}  \right]^{-\frac{1}{2}} \]
-    <p>To recap, we began with a function that describes how a photon travels through our universe and rewrote it in terms of the cosmological parameters. However, since the universe is expanding, our photon will experience a redshift as it travels towards us. The scale factor is related to the redshift via, </p>
+    <p>To recap, we began with a function that describes how a photon travels through our universe and rewrote it in terms of the cosmological parameters. However, we need to rewrite the scale factor in terms of the redshift as we cannot directly measure the scale factor.</p>
     \[1 + z = \frac{a(t_o)}{a(t_e)} = \frac{1}{a(t_e)} \]
     <p>With this relation, we can perform a subsitution in our integral where,</p>
     \[\text{d}a = -\frac{\text{d}z}{(1+z)^2} \]
     \[\begin{split} r & = \frac{c}{H_0} \int_{0}^{z_e} \left[ \Omega_{m,0}(1+z)^{3} + \Omega_{\Lambda} + (1 - \Omega_{m,0} + \Omega_{\Lambda,0})(1+z)^{2}  \right]^{-\frac{1}{2}} \text{d}z \\ & = \frac{c}{H_0} \int_{0}^{z_e} \left[(1+z)^2(\Omega_{m,0} + z\Omega_{m,0} - \Omega_{m,0}) + \Omega_{\Lambda,0} + (1+z)^2 - \Omega_{\Lambda,0}(1+z)^2 \right]^{-\frac{1}{2}} \text{d}z \\ & = \frac{c}{H_0} \int_{0}^{z_e} \left[(1+z^2)(1+z \Omega_{m,0}) + \Omega_{\Lambda,0}(1 - 1 - 2z - z^2) \right]^{-\frac{1}{2}} \text{d}z \\ & = \frac{c}{H_0} \int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z  \end{split} \]
     <p>It is impossible for us to physically place a massive ruler between ourselves and the supernova under consideration, therefore, we must rely on its luminosity distance to tell us how far away it is. So now we will consider the relationship between a light source's flux, luminosity and distance. </p>
     \[ F = \frac{L}{A} = \frac{L}{4\pi r^2} \]
-    <p>To account for the curvature of the universe we will again consider an area of \(A = 4\pi S_k(r)^2\). Where for a flat universe, this equation would simplify to: \(A = 4\pi S_k(r)^2 = 4\pi r^2\). Additionally, our light will experience a redshift that depends on the time the light was emitted \(t_e\).  </p>
+    <p>To account for the curvature of the universe we will again consider an area of \(A = 4\pi S_k(r)^2\), where for a flat universe, the area would simplify to: \(A = 4\pi S_k(r)^2 = 4\pi r^2\). Additionally, a photon travelling through an expanding universe will experience redshift \(z\), in which its observed wavelength \(\lambda_o\) is longer (redder) than its emitted one \(\lambda_e\). The amount of redshift will depend on the scale factor \(a(t)\) at the emitted time \(t_e\).  </p>
     \[\lambda_0 = \frac{1}{a(t_e)}\lambda_e = (1+z_e)\lambda_e \]
-     <p>By considering the energy of a photon, \(E = \frac{hc}{\lambda}\), we can derive an expression between the observed energy \(E_o\), its emitted energy \(E_e\) and the redshift we observe.</p>
-</div>
-
-
-<div class="main">
-    <h2>Model</h2>
-    <p>Since we are considering luminosity distances of type Ia supernova, we will begin with the relationship between a light source's flux \(F\), distance \(r\) and luminosity \(L\) for a static, homogeneous, isotropic, flat universe.</p>
-    \[ F = \frac{L}{A} = \frac{L}{4\pi r^2} \]
-    <p> To account for the expansion and potential curvature of the universe we need to modify our expression for the area in which light spreads out. First, we will modify for curvature. Now in addition to a flat universe, we will consider a negatively curved and positively curved universe. Therefore, we will consider an area expression of \(A = 4\pi S_k(r)^2\), where we define \(S_k(r)\) as: </p>
-    \[S_{k}(r) = \begin{cases} R_0\sin\left(\frac{r}{r_0} \right), & \kappa = +1 \,(\text{positive}) \\ r, & \kappa = 0\hspace{10pt}(\text{flat}) \\ R_0\sinh\left(\frac{r}{r_0} \right), & \kappa = -1\,(\text{negative}) \end{cases} \]
-    <p>Where \(R_0\) is the universe's radius of curvature. For a flat universe our expression for area simplifies to: \(A = 4\pi S_k(r)^2 = 4\pi r^2\). Second, we will modify for expansion. A photon travelling through an expanding universe will experience redshift \(z\), in which its observed wavelength \(\lambda_o\) is longer (redder) than its emitted one \(\lambda_e\). The amount of redshift will depend on the scale factor \(a(t)\) at the emitted time \(t_e\).</p>
-    \[\lambda_0 = \frac{1}{a(t_e)}\lambda_e = (1+z_e)\lambda_e \]
-    <p>Where the scale factor describes how the expansion/contraction of the universe depends on time. Redshifting causes a photon to lose energy. Therefore, by considering the energy of a photon, \(E = \frac{hc}{\lambda}\), we can derive an expression between the observed energy \(E_o\), its emitted energy \(E_e\) and the redshift we observe.</p>
+    <p> Redshifting causes a photon to lose energy. Therefore, by considering the energy of a photon, \(E = \frac{hc}{\lambda}\), we can derive an expression between the observed energy \(E_o\), its emitted energy \(E_e\) and the redshift we observe.</p>
     \[E_o = \frac{hc}{\lambda_o} = \frac{hc}{(\lambda_e/a(t_e))} = a(t_e)\frac{hc}{\lambda_e} = a(t_e)E_e = \frac{1}{1+z_e}E_e  \]
     <p>Reconsidering our expression for flux, the observed flux is related to the emitted flux by a factor of \(1/(1+z_e)\): </p>
     \[F = \frac{L}{4\pi R^2}\frac{1}{1 + z_e}\]
@@ -116,9 +104,9 @@
     \[F = \frac{L}{4\pi S_k(r)^2}\frac{1}{(1 + z_e)^2}\]
     <p>To simplify our expression, we will define a new variable called the <b>luminosity distance</b> \(d_L\). Where \(d_L = S_k(r)(1 + z_e) \). Therefore, our expression becomes:</p>
     \[F = \frac{L}{4\pi d_L^2}\]
-    <p>Onward through our derivation, now we will be considering the comoving radial coordinate \(r\). The Friedmann-Robertson-Walker metric (FRW) for a four-dimensional curved, expanding, isotropic and homogeneous spacetime is given as:</p>
-    \[ds^2 = -c^2\text{d}t^2 + a(t)^2\left[\text{d}r^2 + S_k(r)^2\text{d}\Omega^2 \right]  \]
-    <p>Where \(\text{d}s\) is the distance between two points in space,</p>  
-</div>
+    <p>Now we have a specific equation that relates luminosity distance and redshift. If we reconsider our expression for the metric we can plug in for our comoving coordinate \(r\).</p>
+    \[d_L = (1 + z_e)S_k(r) = (1 + z_e)S_{\kappa}\left(\frac{c}{H_0} \int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right) \]
+     <p>To evaluate \(S_{\kappa}(r)\) we need to define the radius of curvature \(R_0\) in terms of constants and cosmological parameters. From homework 6, we derived the following \(R_0\) expression. </p> 
+
 </body>
 </html>
