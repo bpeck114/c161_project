@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 2</title>
+    <title>Theory</title>
     <style>
+	/* Base styles for the entire document */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
         }
+	    
+	/* Styles for the header section */
         .header {
-            max-width: 800px;
+            max-width: 800px; 
             margin: 0 auto;
             padding: 20px;
             text-align: center;
         }
+	    
+	/* Styles for the main derivation sections */
         .main {
         	max-width: 850px;
             margin:0 auto;
             padding: 20px;
             text-align: left;
         }
+
+	/* Styles for titles of sections */
         h1 {
             color: #333;
         }
+
+	/* Styles for paragraphs */
         p {
             color: #666;
         }
-        /* Navigation Bar Styles */
+        /* Navigation bar styles */
         nav {
             background-color: #333;
             padding: 10px 0;
@@ -48,24 +57,27 @@
             color: #fff;
             text-decoration: none;
         }
+	    
         .expandable {
-    		cursor: pointer;
-    		user-select: none;
-    		display: flex;
-    		align-items: center;
+    	    cursor: pointer;
+    	    user-select: none;
+    	    display: flex;
+    	    align-items: center;
             margin-left: 20px;
-  		}
-  		.arrow {
-    		margin-right: 10px;
-  		}
-  		.paragraph {
-    		display: none;
-    		margin-top: 10px;
-    		margin-left: 60px; /* Adjust indentation as needed */
-  		}
-  		.expanded {
-    		display: block;
-  		}
+  	}
+  	.arrow {
+    	    margin-right: 10px;
+  	}
+  	.paragraph {
+    	    display: none;
+    	    margin-top: 10px;
+    	    margin-left: 60px; /* Adjust indentation as needed */
+  	}
+
+	/* Styles to display expanded sections */
+  	.expanded {
+    	    display: block;
+  	}
     </style>
     <title>MathJax Example</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,20 +94,28 @@
     </ul>
 </nav>
 
+<!-- Header for the theory page  -->
+
 <div class="header">
     <h1>Welcome to the Theory Page!</h1>
     <p>The 1929 paper by Edwin Hubble serves as our initial inspiration for this project. We aim to explore the improvement in the Cosmology over the last century. Specifically, we are exploring improvement's in the calculation of the Hubble constant, the scale factor and cosmological parameters.</p>
     <a href="index.html">Go back to Home Page</a>
 </div>
 
+<!-- Creating the body of the theory page -->
+
 <div class="main">
     <h1>Deriving \(\Omega_{M,0}, \Omega_{\Lambda,0}, H_0 \) from Observations:</h1>
     <p>By observing Type Ia supernova redshifts and luminosities distance, we can constrain the mass-energy composition of our universe through values of cosmological parameters. </p>
     \[d_L = cH_0^{-1}(1+z_e)|\Omega_k|^{-\frac{1}{2}} \text{sinn}\left(|\Omega_k|^{\frac{1}{2}}\int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right)  \]
-    
+
+    <!-- Creating the button to turn on/off the derivation for the first section -->
+	
     <div class="expandable" onclick="toggleParagraph('expandedParagraph1')">
         <span class="arrow">&#x25B6;</span> <b>Click to see full derivation:</b>
     </div>
+
+    <!-- The following is hidden until someone decides to click the expandable section -->
 	
     <div class="paragraph" id="expandedParagraph1">
 	<p>To derive this relationship, we will begin by considering an observed photon emitted from a distant Type Ia supernova that traveled through an expanding, homogeneous and isotropic universe.</p>
@@ -143,14 +163,18 @@
    	\[\begin{split} d_L &  = (1 + z_e)S_k(r) \\ & = (1 + z_e)\frac{c}{H_0}|\Omega_{k,0}|^{-\frac{1}{2}}\text{sinn}\left(\frac{H_0}{c}|\Omega_{k,0}|^{\frac{1}{2}}r \right) \\ & = (1 + z_e)\frac{c}{H_0}|\Omega_{k,0}|^{-\frac{1}{2}}\text{sinn}\left(\frac{c}{H_0}\frac{H_0}{c}|\Omega_{k,0}|^{\frac{1}{2}} \int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right) \\ & = \boxed{cH_0^{-1}(1+z_e)|\Omega_{k,0}|^{-\frac{1}{2}} \text{sinn}\left(|\Omega_{k,0}|^{\frac{1}{2}}\int_{0}^{z_e} \left[(1+z)^2(1 + z\Omega_{m,0}) - z(2+z)\Omega_{\Lambda, 0} \right]^{-\frac{1}{2}} \text{d}z \right)} \end{split} \]
     </div>
 
-    <p style="margin-bottom:3cm;">This is the first question?</p>
+    <p style="margin-bottom:3cm;"></p> <!-- Add space between sections -->
+
+    <!-- Beginning of the second section for theory -->
 	
     <h1>Phase Space Sampling Technique:</h1>
     <p>In addition to SciPy's curve-fitting function, we also explored finding the best fit values by phase-space sampling. </p>
-    
-    <div class="expandable" onclick="toggleParagraph('expandedParagraph2')">
+	
+    <div class="expandable" onclick="toggleParagraph('expandedParagraph2')"> <!-- Creating the clickable section -->
         <span class="arrow">&#x25B6;</span> <b>Click for more information:</b>
     </div>
+
+    <!-- The rest is hidden before clicking on the button above -->
 	
     <div class="paragraph" id="expandedParagraph2">
 	<p>Specifically, to find the best-fit parameters for the cosmological parameters we want to sample the phase-space and identify which combination of parameters provides the best fit for our data. Given values found by other papers, we will sample in the following regions,</p>
@@ -160,7 +184,9 @@
     	<p>Where the observed luminosity distances are \(d_{\text{obs},i} \pm d_{\text{err,i}} \) and the expected luminosity distances are \(d_{\text{exp,i}}\) depending on what the choice for the cosmological parameters. For the chi-squared, a sum is taken over all the data points. </p>
     </div>
 
-    <p style="margin-bottom:3cm;">This is the first question?</p>
+    <p style="margin-bottom:3cm;"></p> <!-- Add space between sections -->
+
+    <!-- Third section of the theory section -->
 	
     <h1>Deriving \(a(t)\) for Matter-Energy Dominated Universe:</h1>
     <p>Once we have derived \(\Omega_{m,0}, \Omega_{\Lambda,0} \) and \(H_0\) from the observed redshfits and luminosity distance of the Type Ia supernova, we can further integrate the Friedmann equation to solve for the scale factor.</p>
@@ -170,6 +196,8 @@
 	<div class="expandable" onclick="toggleParagraph('expandedParagraph3')">
         	<span class="arrow">&#x25B6;</span> <b>Click to see full derivation:</b>
     	</div>
+
+    <!-- The rest is hidden from view until clicked -->
     
     <div class="paragraph" id="expandedParagraph3">
     	<p>Beginning with the general form of the Friedmann equation which relates the scale factor \(a(t)\), the curvature constant \(\kappa\), the radius of curvature of our universe \(R_0\) and the energy density \(\epsilon(t)\),  </p>
@@ -189,6 +217,7 @@
     </div>
 </div>
 
+<!-- Code below allows the button to be clicked -->
 <script>
 function toggleParagraph(id) {
   var paragraph = document.getElementById(id);
