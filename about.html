@@ -23,6 +23,10 @@
             padding: 20px;
             text-align: left;
         }
+        .text {
+            text-align: left;
+            margin-left: 20px; /* Adjust the margin as needed */
+        }
         h1 {
             color: #333;
         }
@@ -68,7 +72,10 @@
 </div>
 
 <div class="main">
-    <img src="galaxy.jpg" alt="Galaxy" width="500" height="500">
+    <img src="galaxy.jpg" alt="Galaxy" width="300" height="300">
+    <div class="text">
+        <p>A really nice photo of a fake galaxy!</p>
+    </div>
 </div>
 
 <input type="checkbox" id="helloCheckbox" onchange="toggleHello()">
@@ -80,7 +87,7 @@ function toggleHello() {
     var helloText = document.getElementById("helloText");
     var checkbox = document.getElementById("helloCheckbox");
     if (checkbox.checked) {
-        helloText.textContent = "Hello World!";
+        helloText.textContent = "Hello, World!";
     } else {
         helloText.textContent = "";
     }
