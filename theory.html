@@ -152,6 +152,29 @@
     		\[\chi^2 = \sum_i \frac{(d_{\text{obs},i} - d_{\text{exp,i}})^2}{d_{\text{err},i}^2} \]
     		<p>Where the observed luminosity distances are \(d_{\text{obs},i} \pm d_{\text{err,i}} \) and the expected luminosity distances are \(d_{\text{exp,i}}\) depending on what the choice for the cosmological parameters. For the chi-squared, a sum is taken over all the data points. </p>
     	</div>
+    <h1>Deriving \(a(t)\) for Matter-Energy Dominated Universe:</h1>
+    <p>Once we have derived \(\Omega_{m,0}, \Omega_{\Lambda,0} \) and \(H_0\) from the observed redshfits and luminosity distance of the Type Ia supernova, we can further integrate the Friedmann equation to solve for the scale factor.</p>
+    \[a_{m,\Lambda}(t) = \frac{\sqrt[3]{\Omega_{m,0}}\tanh \left(\frac{3}{2} \left(c_1 \sqrt{\Omega_{\Lambda,0}} + H_0\sqrt{\Omega_{\Lambda,0}}t\right)\right)^{\frac{2}{3}}}{\sqrt[3]{\Omega_{m,0} - \Omega_{m,0}\tanh\left(\frac{3}{2}\left(c_1 \sqrt{\Omega_{\Lambda,0}} + H_0\sqrt{\Omega_{\Lambda,0}}t \right) \right)^2} } \]
+    <p>Where \(a_{m,\Lambda}(t)\) represents the scale factor when considering a matter-energy dominated universe.  </p>
+    <div class="expandable" onclick="toggleParagraph('expandedParagraph3')">
+        <span class="arrow">&#x25B6;</span> <b>Click to see full derivation:</b>
+    </div>
+    <div class="paragraph" id="expandedParagraph3">
+    	<p>Beginning with the general form of the Friedmann equation which relates the scale factor \(a(t)\), the curvature constant \(\kappa\), the radius of curvature of our universe \(R_0\) and the energy density \(\epsilon(t)\),  </p>
+        \[H(t)^2 = \frac{8\pi G}{3c^2}\epsilon(t) - \frac{\kappa c^2}{R_0^2 a(t)} \]
+        <p>Now we will derive three expressions for the scale factor: \(a_{m}(t)\) for matter-dominated, \(a_{\Lambda}(t)\) for energy-dominated and \(a_{m,\Lambda}(t)\) for matter-energy dominated universe. Starting with matter-dominated, we can use the relationship between the Hubble parameter \(H(t)\) and the scale factor</p>
+        \[H(t)^2 = \frac{\dot{a}^2}{a^2}\]
+        <p>With this we can rewrite our Friedmann equation by considering a universe where \(\Omega_{\Lambda,0}=0\). </p>
+        \[\begin{split}\frac{\dot{a}^2}{a^2} & = H_0^2\frac{\Omega_{m,0}}{a^3} \\ \frac{a^3}{a^2}\frac{\text{d}a^2}{\text{d}t^2} & = H_0^2\Omega_{m,0} \\ \int_0^{a_m(t)} \sqrt{a}\text{d}a & = H_0\sqrt{\Omega_{m,0}} \int_0^t \text{d}t \\ \frac{2}{3}a_m(t)^{\frac{3}{2}} & = H_0\sqrt{\Omega_{m,0}} t \\  \end{split}\]
+        \[a_{m}(t) = \left(\frac{3}{2}H_0\sqrt{\Omega_{m,0}} t \right) \]
+        <p>Now we will derive a scale factor \(a_{\Lambda} \) an energy-dominated universe where \(\Omega_{m,0} = 0\).</p>
+    	\[\begin{split}\frac{\dot{a}^2}{a} & = H_0^2\Omega_{\Lambda,0} \\ \int_{a_0}^{a_{\Lambda}(t)}  \frac{1}{a}\text{d}a & = H_0\sqrt{\Omega_{\Lambda,0}} \int_0^t \text{d}t \\ \ln\left( \frac{a_{\Lambda}(t)}{a_{\Lambda}(0)} \right) & = H_0 \sqrt{\Omega_{\Lambda}} t \end{split} \]
+    	\[a_{\Lambda}(t) = a(0) e^{H_0\sqrt{\Omega_{\Lambda,0}}t} \]
+    	<p>At this point we have run into a problem because \(a_{\Lambda}(0) = 0\) and therefore \(a_{\Lambda} = 0\) which is not observationally what we see. Therefore, to get the universe we observer today \(a_{\Lambda} \neq 0\) and rather be equal to some constant. To determine this constant we considered the intersection between an empty universe and matter-dominated universe to determine where dark-energy would begin to play a role. Finally, we will derive a scale factor for a matter-energy dominated universe \(a_{m,\Lambda}(t)\)</p>
+    	\[\begin{split} \frac{\dot{a}^2}{a^2} & = H_0^2\left[\frac{\Omega_{m,0}}{a^3} + \Omega_{\Lambda,0} \right] \\ \frac{\text{d}}{\text{d}t}\left(a_{m,\Lambda}(t)\right) & = H_0\sqrt{\frac{\Omega_{m,0}}{a} + \Omega{\Lambda,0}a^2} \end{split} \]
+    	<p>To solve this differential equation, we plugged it into Wolfram Alpha which gave us, </p>
+     	\[a_{m,\Lambda}(t) = \frac{\sqrt[3]{\Omega_{m,0}}\tanh \left(\frac{3}{2} \left(c_1 \sqrt{\Omega_{\Lambda,0}} + H_0\sqrt{\Omega_{\Lambda,0}}t\right)\right)^{\frac{2}{3}}}{\sqrt[3]{\Omega_{m,0} - \Omega_{m,0}\tanh\left(\frac{3}{2}\left(c_1 \sqrt{\Omega_{\Lambda,0}} + H_0\sqrt{\Omega_{\Lambda,0}}t \right) \right)^2} } \]
+    </div>
 </div>
 
 <script>
