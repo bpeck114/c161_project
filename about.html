@@ -73,15 +73,19 @@
 </div>
 
 <div class="main">
-    <img src="galaxy.jpg" alt="Galaxy" width="100" height="100">
-    <div class="text">
-        <p>A really nice photo of a fake galaxy!</p>
-    </div>
+    <!-- <img src="galaxy.jpg" alt="Galaxy" width="100" height="100"> -->
+    
+    <!-- <div class="text"> -->
+        <!-- <p>A really nice photo of a fake galaxy!</p> -->
+    <!-- </div> -->
+    
+    <input type="checkbox" id="helloCheckbox" onchange="toggleHello()">
+    <label for="helloCheckbox">Click for a Surprise</label>
+    <p id="helloText"></p>
+    
 </div>
 
-<input type="checkbox" id="helloCheckbox" onchange="toggleHello()">
-<label for="helloCheckbox">Click for a Surprise</label>
-<p id="helloText"></p>
+
 
 <script>
 function toggleHello() {
