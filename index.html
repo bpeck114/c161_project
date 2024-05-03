@@ -129,7 +129,7 @@
 
 <div class="main">
 	<h1>Results from Phase Space Sampling</h1>
-	<p>We fit the supernova luminosity distance versus redshift data to the model described on our Theory page in two different ways: first using the SciPy curve_fit function, and second by sampling the \((\Omega_{m,0},\Omega_{\Lambda,0})\) phase space. We obtained very similar results with the two methods, and they both provide a good fit to the data, as illustrated in the luminosity distance versus redshift plots below.</p>
+	<p>We fit the supernova luminosity distance versus redshift data to the model described on our Theory page in two different ways: first using the SciPy curve_fit function, and second by sampling the \((\Omega_{m,0},\Omega_{\Lambda,0},H_0)\) phase space. The luminosity distance versus redshift plots below demonstrate that our cosmological parameters obtained via curve fitting provide a good fit to the data.</p>
 
 	<div class="image-row">
 		<img src="scp_curvefit.png" alt="SCP Curvefit" width="300" height="300">
@@ -137,7 +137,7 @@
 		<img src="snls_curvefit.png" alt="SNLS Curvefit" width="300" height="300">
 	</div>
 
-	<p>...</p>
+	<p>The cosmological parameters obtained using phase space sampling are very close to those obtained using curve fitting (see table below). Since the corresponding luminosity distance versus redshift plots are practically identical, we do not reproduce them here. However, we will zoom in on the high redshift regions of the plots from above to demonstrate that our models approximate the data well even in the most difficult regions to fit. This time we will use the cosmological parameters obtained by sampling the phase space instead of by curve fitting (but, as noted above, the two sets of parameters are equivalent for all practical purposes). In addition, we will plot the luminosity distance as a function of redshift for a few alternative values of the cosmological parameters to demonstrate that our model performs better than these alternatives.</p>
 
 	<div class="image-row">
 		<img src="scp_phase.png" alt="SCP Phase Space" width="300" height="300">
@@ -145,7 +145,7 @@
 		<img src="snls_phase.png" alt="SNLS Phase Space" width="300" height="300">
 	</div>
 
-	<p>...</p>
+	<p>To perform the phase space sampling, we selected many different combinations of cosmological parameters and computed the reduced chi-squared values that result from using those cosmological parameters to fit our data. The plots below demonstrate how the reduced chi-squared value varies across the \((\Omega_{m,0},\Omega_{\Lambda,0})\) phase space (keeping \(H_0\) fixed at its best fit value). We selected the cosmological parameters with the lowest reduced chi-squared as the best fit values. </p>
 
 	<div class="image-row">
 		<img src="scp_chi_squared.png" alt="SCP Chi-Squared" width="300" height="300">
@@ -153,7 +153,7 @@
 		<img src="snls_chi_squared.png" alt="SNLS Chi-Squared" width="200" height="300">
 	</div>
 
-	<p>...</p>
+	<p>From the reduced chi-squared plots, we can already begin to see that the region of phase space in which the true cosmological parameters are most likely to lie forms a diagonal stripe centered on the best fit value. To gain further insight into the region most likely to contain the true cosmological parameters, we also computed the survival function, which is defined as one minus the cumulative distribution function for the chi-squared distribution. We rescaled the probability distribution so as to measure probabilities relative to the best fit value (i.e., the rescaled probability for a point whose probability is 80% that of the best fit value is 0.8). The results are shown in the plots below.</p>
 
 	<div class="image-row">
 		<img src="scp_prop.png" alt="SCP Propability" width="300" height="300">
@@ -161,7 +161,7 @@
 		<img src="snls_prop.png" alt="SNLS Probability" width="300" height="300">
 	</div>
 
-	<p>...</p>
+	<p>Lastly, we integrated the Friedmann equation using the cosmological parameters we calculated from each dataset. This allows us to determine the scale factor of the universe at all past and future times under each model. The results are labeled “Matter and dark energy” and appear in blue in the plots below. For comparison, we also included the scale factor for a matter-only universe (using the \(\Omega_{m,0}\) and \(H_0\) values we calculated but assuming \(\Omega_{\Lambda,0}=0\)) and for an empty universe (using the \(H_0\) value we calculated but assuming \(\Omega_{m,0} = \Omega_{\Lambda,0} = 0\)). </p>
 
 	<div class="image-row">
 		<img src="scp_scale.png" alt="SCP Scale Factor" width="300" height="300">
@@ -217,9 +217,9 @@
 
 <div class="main">
 	<h1>Next Steps:</h1>
-	<p>If we had unlimited time to complete this project (and did not have finals to study for), we would have liked to have a feature on the website that allowed users to import their values for the cosmological parameters and a scale factor plot would generate. The feature is technically available in our jupyer notebooks (linked on our github, see about page) but we did not have enought time to make this part of our website. </p>
+	<p>If we had unlimited time to complete this project, we would have liked to have a feature on the website that allowed users to import their values for the cosmological parameters and a scale factor plot would generate. The feature is technically available in our jupyer notebooks (linked on our github, see about page) but we did not have enought time to make this part of our website. </p>
 
-	<img src="galaxy.png" alt="SNLS" width="500" height="500">
+	<img src="galaxy.jpg" alt="Galaxy" width="500" height="500">
 </div>
 
 	
