@@ -53,6 +53,55 @@
             color: #fff;
             text-decoration: none;
         }
+        
+        /* Style for the checkbox */
+        .checkbox-container {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            padding-left: 25px;
+            margin-right: 15px;
+        }
+        
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #ccc;
+            border-radius: 3px;
+        }
+        
+        .checkbox-container:hover input ~ .checkmark {
+            background-color: #bbb;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+        
+        .checkbox-container .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 <body>
@@ -74,15 +123,18 @@
 </div>
 
 <div class="main">
-    <!-- <img src="galaxy.jpg" alt="Galaxy" width="100" height="100"> -->
+    <img src="papa_kasen.jpg" alt="Surprise!" width="100" height="100" id="helloImage" style="display: none;">
     
     <!-- <div class="text"> -->
         <!-- <p>A really nice photo of a fake galaxy!</p> -->
     <!-- </div> -->
     
-    <input type="checkbox" id="helloCheckbox" onchange="toggleHello()">
+    <label class="checkbox-container">
+        <input type="checkbox" id="helloCheckbox" onchange="toggleHello()">
+        <span class="checkmark"></span>
+    </label>
+    
     <label for="helloCheckbox">Click for a Surprise</label>
-    <p id="helloText"></p>
     
 </div>
 
@@ -90,15 +142,16 @@
 
 <script>
 function toggleHello() {
-    var helloText = document.getElementById("helloText");
+    var helloImage = document.getElementById("helloImage");
     var checkbox = document.getElementById("helloCheckbox");
     if (checkbox.checked) {
-        helloText.textContent = "Hello, World!";
+        helloImage.style.display = "inline"; // Show the image
     } else {
-        helloText.textContent = "";
+        helloImage.style.display = "none"; // Hide the image
     }
 }
 </script>
     
 </body>
 </html>
+
