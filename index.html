@@ -1,102 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-	body {
-		font-family: Arial, sans-serif;
-            	margin: 0;
-            	padding: 0;
-            	background-color: #f0f0f0;
-        }
-        .header {
-            	max-width: 800px;
-            	margin: 0 auto;
-            	padding: 20px;
-            	text-align: center;
-        }
-        .main {
-        	max-width: 1000px;
-            	margin:0 auto;
-            	padding: 20px;
-            	text-align: left;
-        }
-        h1 {
-            	color: #333;
-        }
-        p {
-            	color: #666;
-        }
-        /* Navigation Bar Styles */
-        nav {
-            	background-color: #333;
-            	padding: 10px 0;
-        }
-        nav ul {
-            	list-style-type: none;
-            	margin: 0;
-            	padding: 0;
-            	text-align: center;
-        }
-        nav ul li {
-            	display: inline;
-            	margin: 0 10px;
-        }
-        nav ul li a {
-            	color: #fff;
-            	text-decoration: none;
-        }
-        .image-row {
-            	display: flex; /* Use flexbox for layout */
-            	justify-content: space-between; /* Distribute space between images */
-            	max-width: 1000px; /* Set maximum width for the container */
-            	margin: 0 auto; /* Center the container */
-        }
-        .image-row img {
-            	max-width: calc(100% / 3); /* Each image takes up 1/3 of the container width */
-            	height: auto; /* Maintain aspect ratio */
-            	margin-right: 10px; /* Add margin between images */
-        }
-        /* Remove margin from last image to prevent extra space */
-        .image-row img:last-child {
-            	margin-right: 0;
-        }
-    </style>
-    <title>MathJax Example</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+            		margin: 0;
+            		padding: 0;
+            		background-color: #f0f0f0;
+        	}
+        	.header {
+            		max-width: 800px;
+            		margin: 0 auto;
+            		padding: 20px;
+            		text-align: center;
+        	}
+        	.main {
+        		max-width: 1000px;
+            		margin:0 auto;
+            		padding: 20px;
+            		text-align: left;
+        	}
+       		h1 {
+            		color: #333;
+        	}
+        	p {
+            		color: #666;
+        	}
+        	/* Navigation Bar Styles */
+        	nav {
+            		background-color: #333;
+            		padding: 10px 0;
+        	}
+        	nav ul {
+            		list-style-type: none;
+            		margin: 0;
+            		padding: 0;
+            		text-align: center;
+        	}
+        	nav ul li {
+            		display: inline;
+            		margin: 0 10px;
+        	}
+        	nav ul li a {
+            		color: #fff;
+            		text-decoration: none;
+        	}
+        	.image-row {
+            		display: flex; /* Use flexbox for layout */
+            		justify-content: space-between; /* Distribute space between images */
+            		max-width: 1000px; /* Set maximum width for the container */
+            		margin: 0 auto; /* Center the container */
+        	}
+        	.image-row img {
+            		max-width: calc(100% / 3); /* Each image takes up 1/3 of the container width */
+            		height: auto; /* Maintain aspect ratio */
+            		margin-right: 10px; /* Add margin between images */
+        	}
+        	/* Remove margin from last image to prevent extra space */
+        	.image-row img:last-child {
+            		margin-right: 0;
+        	}
+		table {
+            		margin-left: auto;
+            		margin-right: auto;
+        	}
+    	</style>
+    	<title>MathJax Example</title>
+    	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
 <!-- Navigation Bar -->
 <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="theory.html">Theory</a></li>
-	<li><a href="references.html">References</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul>
+	<ul>
+        	<li><a href="index.html">Home</a></li>
+        	<li><a href="theory.html">Theory</a></li>
+		<li><a href="references.html">References</a></li>
+        	<li><a href="about.html">About</a></li>
+    	</ul>
 </nav>
 
 <div class="header">
-    <h1>Welcome to Our C161 Project Home Page!</h1>
-    <p>Created by: Brianna Peck, Eli Gendreau-Distler and  Dex Bhadra.</p>
-    <p>For our Astronomy C161 Final Project, we calculate the cosmological parameters \(\Omega_{m,0}\), \(\Omega_{\Lambda,0}\), and \(H_0\) from observations of Type 1a supernovae. We begin with datasets describing supernovae redshifts and luminosity distances from several important studies in the field. Using equations from the course, we derive a relationship between redshift and luminosity distance in terms of the cosmological parameters. Then we fit our data to this model in order to solve for the best fit values of \(\Omega_{m,0}\), \(\Omega_{\Lambda,0}\), and \(H_0\). We separately determine the best fit values of these parameters by sampling the phase space and calculating the probability associated with each point in phase space. After calculating \(\Omega_{m,0}\), \(\Omega_{\Lambda,0}\), and \(H_0\), we integrate the Friedmann equation to illustrate the evolution of the universe under the predicted model and in matter-dominated, dark energy-dominated, and empty universes. Lastly, we compare our parameters to the accepted results and discuss the implications of these results for the history and fate of our universe. </p>
+	<h1>Welcome to Our C161 Project Home Page!</h1>
+    	<p>Created by: Brianna Peck, Eli Gendreau-Distler and  Dex Bhadra.</p>
+    	<p>For our Astronomy C161 Final Project, we calculate the cosmological parameters \(\Omega_{m,0}\), \(\Omega_{\Lambda,0}\), and \(H_0\) from observations of Type 1a supernovae. We begin with datasets describing supernovae redshifts and luminosity distances from several important studies in the field. Using equations from the course, we derive a relationship between redshift and luminosity distance in terms of the cosmological parameters. Then we fit our data to this model in order to solve for the best fit values of \(\Omega_{m,0}\), \(\Omega_{\Lambda,0}\), and \(H_0\). We separately determine the best fit values of these parameters by sampling the phase space and calculating the probability associated with each point in phase space. After calculating \(\Omega_{m,0}\), \(\Omega_{\Lambda,0}\), and \(H_0\), we integrate the Friedmann equation to illustrate the evolution of the universe under the predicted model and in matter-dominated, dark energy-dominated, and empty universes. Lastly, we compare our parameters to the accepted results and discuss the implications of these results for the history and fate of our universe. </p>
 </div>
 
 <div class="main">
-    <h1>Background</h1>
-    <p>In 1917, Albert Einstein published his paper describing the general theory of relativity. However, in this paper, Einstein assumed a static universe (\(\omega = 1 \)). Just over ten years later, Hubble published an article in 1929 where he presented empirical evidence that we instead live in an expanding universe. By observing the redshift of distant galaxies, Hubble derived his famous equation:
+    	<h1>Background</h1>
+	<p>In 1917, Albert Einstein published his paper describing the general theory of relativity. However, in this paper, Einstein assumed a static universe (\(\omega = 1 \)). Just over ten years later, Hubble published an article in 1929 where he presented empirical evidence that we instead live in an expanding universe. By observing the redshift of distant galaxies, Hubble derived his famous equation:
 
-    \[v = H_0 D \]
+    	\[v = H_0 D \]
 
-    <p>Known as Hubble’s Law, this equation states galaxies are moving farther away at a speed proportional to their distances. If we examine Hubble’s data explicitly:</p> 
+    	<p>Known as Hubble’s Law, this equation states galaxies are moving farther away at a speed proportional to their distances. If we examine Hubble’s data explicitly:</p> 
 
-    <img src="hubble_data.png" alt="Hubble's Galactic Data." width="500" height="500" style="display: block; margin: 0 auto;">
+    	<img src="hubble_data.png" alt="Hubble's Galactic Data." width="500" height="500" style="display: block; margin: 0 auto;">
     
-    <p>From his infamous formula, his data gives a Hubble constant \(H_0 \approx 450 \). Despite applying the correct equation, Hubble incorrectly derived his own constant because he did not look far enough away. Supplied with more sensitive instruments, scientists can derive much more accurate values for Hubble’s constant and cosmological parameters. For further information, refer to the <a href="theory.html">theory</a></li> page for further information on how we derived our values.</p> <!-- DO NOT DELETE IMAGE IN REPOSITORY, rename this line otherwise github pages gets fussy --> 
+    	<p>From his infamous formula, his data gives a Hubble constant \(H_0 \approx 450 \). Despite applying the correct equation, Hubble incorrectly derived his own constant because he did not look far enough away. Supplied with more sensitive instruments, scientists can derive much more accurate values for Hubble’s constant and cosmological parameters. For further information, refer to the <a href="theory.html">theory</a></li> page for further information on how we derived our values.</p> <!-- DO NOT DELETE IMAGE IN REPOSITORY, rename this line otherwise github pages gets fussy --> 
 </div>
     
 <div class="main">
